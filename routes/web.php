@@ -66,6 +66,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 */
 // @generated-roles:start
 
+// @role:user:start
+Route::group(['prefix' => 'user', 'middleware' => 'user'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('user.dashboard');
+});
+// @role:user:end
+// @role:petugas:start
+Route::group(['prefix' => 'petugas', 'middleware' => 'petugas'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('petugas.dashboard');
+});
+// @role:petugas:end
 // @generated-roles:end
 
 /*
