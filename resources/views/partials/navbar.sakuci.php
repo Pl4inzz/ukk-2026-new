@@ -34,7 +34,7 @@
                     <a class="nav-link {{ is_route('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ is_route('docs') ? 'active' : '' }}" href="{{ route('docs') }}">Docs</a>
+                    <a class="nav-link {{ is_route('tarif.index') ? 'active' : '' }}" href="{{ route('tarif.index') }}">Daftar Tarif</a>
                 </li>
                 @php
                     $currentUser = \App\Models\User::current();

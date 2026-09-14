@@ -6,6 +6,7 @@ use App\Controllers\Core\DatabaseController;
 use App\Controllers\Core\DocsController;
 use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
+use App\Controllers\TarifController;
 use Sakuci\Route;
 
 /*
@@ -54,6 +55,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
 
     Route::get('/database/export', [DatabaseController::class, 'export'])->name('admin.database.export');
+
+    //tarif routes
+    Route::get('/tarif', [TarifController::class, 'index'])->name('tarif.index');
+    Route::get('/tarif/create', [TarifController::class, 'create'])->name('tarif.create');
+    Route::post('/tarif', [TarifController::class, 'store'])->name('tarif.store');
+    Route::delete('/tarif/{id}', [TarifController::class, 'destroy'])->name('tarif.destroy');
+    Route::get('/tarif/{id_tarif}/edit', [TarifController::class, 'edit'])->name('tarif.edit');
+    Route::put('/tarif/{id_tarif}', [TarifController::class, 'update'])->name('tarif.update');
 });
 
 /*
