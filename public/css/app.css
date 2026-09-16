@@ -256,3 +256,38 @@ code.inline {
     color: #a5b4fc;
 }
 
+/* Custom Sidebar Offcanvas Styling */
+.offcanvas-start {
+    width: 270px !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.offcanvas-body .nav-link {
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 500;
+    color: var(--bs-body-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.offcanvas-body .nav-link:hover {
+    background-color: var(--brand-subtle);
+    color: var(--brand);
+}
+
+.offcanvas-body .nav-link.active {
+    background-color: var(--brand);
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Penyesuaian Warna Sidebar untuk Mode Gelap */
+[data-bs-theme="dark"] .offcanvas-body .nav-link:hover {
+    background-color: rgba(194, 65, 12, 0.18);
+    color: #fb923c;
+}
+
+[data-bs-theme="dark"] .offcanvas-body .nav-link.active {
+    background-color: var(--brand);
+    color: #fff !important;
+}

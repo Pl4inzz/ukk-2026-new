@@ -7,6 +7,7 @@ use App\Controllers\Core\DocsController;
 use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
 use App\Controllers\TarifController;
+use App\Controllers\AreaParkirController;
 use Sakuci\Route;
 
 /*
@@ -63,6 +64,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::delete('/tarif/{id}', [TarifController::class, 'destroy'])->name('tarif.destroy');
     Route::get('/tarif/{id_tarif}/edit', [TarifController::class, 'edit'])->name('tarif.edit');
     Route::put('/tarif/{id_tarif}', [TarifController::class, 'update'])->name('tarif.update');
+
+    //area parkir routes
+    Route::get('/area-parkir', [AreaParkirController::class, 'index'])->name('area-parkir.index');
+    Route::get('/area-parkir/create', [AreaParkirController::class, 'create'])->name('area-parkir.create');
+    Route::post('/area-parkir', [AreaParkirController::class, 'store'])->name('area-parkir.store');
 });
 
 /*
