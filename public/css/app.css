@@ -1,4 +1,4 @@
-﻿/*
+/*
 | Lapisan tema di atas Bootstrap.
 | Bootstrap dimuat lebih dulu, file ini hanya menimpa seperlunya.
 */
@@ -290,4 +290,316 @@ code.inline {
 [data-bs-theme="dark"] .offcanvas-body .nav-link.active {
     background-color: var(--brand);
     color: #fff !important;
+}
+
+/* Custom Sidebar Offcanvas Styling - EZPark Theme */
+.offcanvas-start {
+    width: 280px !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.offcanvas-admin {
+    background-color: var(--bs-body-bg) !important;
+    border-right: 1px solid var(--bs-border-color) !important;
+}
+
+.offcanvas-admin .admin-badge {
+    font-size: 11px;
+    background-color: var(--brand-subtle);
+    color: var(--brand-dark);
+    border: 1px solid rgba(194, 65, 12, 0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.offcanvas-admin .nav-link-custom {
+    color: var(--bs-secondary-color);
+    font-weight: 500;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.offcanvas-admin .nav-link-custom:hover {
+    color: var(--brand);
+    background-color: var(--brand-subtle);
+    transform: translateX(4px);
+}
+
+.offcanvas-admin .nav-link-custom.active {
+    color: #ffffff !important;
+    background-color: var(--brand) !important;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.3);
+    font-weight: 600;
+}
+
+.offcanvas-admin .nav-link-custom svg {
+    transition: transform 0.2s ease;
+}
+
+.offcanvas-admin .nav-link-custom:hover svg {
+    transform: scale(1.1);
+}
+
+/* Sidebar Offcanvas Theme & Animation Fix */
+.offcanvas-admin {
+    background-color: var(--bs-body-bg) !important;
+    border-right: 1px solid var(--bs-border-color) !important;
+}
+
+/* Animasi Slide-In Isi Sidebar saat Dipanggil */
+.offcanvas-admin.show .offcanvas-body {
+    animation: sidebarSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sidebarSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Reset & Styling Link Sidebar */
+.offcanvas-admin .nav-link-custom,
+.offcanvas-admin .nav-link-custom:visited {
+    color: var(--bs-body-color) !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover State - Aksen Warna Brand */
+.offcanvas-admin .nav-link-custom:hover {
+    color: var(--brand) !important;
+    background-color: var(--brand-subtle) !important;
+    transform: translateX(6px);
+    text-decoration: none !important;
+}
+
+/* Active State - Mengikuti Color Theme Brand */
+.offcanvas-admin .nav-link-custom.active {
+    color: #ffffff !important;
+    background-color: var(--brand) !important;
+    box-shadow: 0 4px 14px rgba(194, 65, 12, 0.35);
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.offcanvas-admin .nav-link-custom svg {
+    transition: transform 0.25s ease;
+}
+
+.offcanvas-admin .nav-link-custom:hover svg {
+    transform: scale(1.15);
+}
+
+/* Badge Admin */
+.offcanvas-admin .admin-badge {
+    font-size: 11px;
+    background-color: var(--brand-subtle);
+    color: var(--brand-dark);
+    border: 1px solid rgba(194, 65, 12, 0.25);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Penyesuaian Mode Gelap */
+[data-bs-theme="dark"] .offcanvas-admin .nav-link-custom:hover {
+    background-color: rgba(194, 65, 12, 0.18) !important;
+    color: #fb923c !important;
+}
+
+[data-bs-theme="dark"] .offcanvas-admin .admin-badge {
+    background-color: rgba(194, 65, 12, 0.18);
+    color: #fb923c;
+    border-color: rgba(194, 65, 12, 0.3);
+}
+
+/* ==========================================
+   OFFCANVAS SIDEBAR EZPARK CUSTOM THEME
+   ========================================== */
+
+/* Animasi Slide Smooth untuk Offcanvas */
+.offcanvas-admin {
+    width: 280px !important;
+    background-color: var(--bs-body-bg) !important;
+    border-right: 1px solid var(--bs-border-color) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Animasi Elemen Menu Masuk dari Kiri */
+.offcanvas-admin.show .offcanvas-body nav a {
+    animation: sidebarItemFadeIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+.offcanvas-admin.show .offcanvas-body nav a:nth-child(1) { animation-delay: 0.05s; }
+.offcanvas-admin.show .offcanvas-body nav a:nth-child(2) { animation-delay: 0.10s; }
+.offcanvas-admin.show .offcanvas-body nav a:nth-child(3) { animation-delay: 0.15s; }
+.offcanvas-admin.show .offcanvas-body nav a:nth-child(4) { animation-delay: 0.20s; }
+.offcanvas-admin.show .offcanvas-body nav a:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes sidebarItemFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Memaksa Menghilangkan Underline & Memperbaiki Warna Link */
+.offcanvas-admin a.sidebar-item,
+.offcanvas-admin a.sidebar-item:visited,
+.offcanvas-admin a.sidebar-item:link {
+    color: var(--bs-body-color) !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover State - Warna Oranye Subtitil Brand */
+.offcanvas-admin a.sidebar-item:hover {
+    color: var(--brand) !important;
+    background-color: var(--brand-subtle) !important;
+    transform: translateX(4px);
+    text-decoration: none !important;
+}
+
+/* Active State - Oranye Brand Penuh */
+.offcanvas-admin a.sidebar-item.active {
+    color: #ffffff !important;
+    background-color: var(--brand) !important;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.35);
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.offcanvas-admin a.sidebar-item svg {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.offcanvas-admin a.sidebar-item:hover svg {
+    transform: scale(1.12);
+}
+
+/* Badge Administrator */
+.offcanvas-admin .admin-badge {
+    font-size: 11px;
+    background-color: var(--brand-subtle);
+    color: var(--brand-dark);
+    border: 1px solid rgba(194, 65, 12, 0.25);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Penyesuaian Mode Gelap (Dark Mode) */
+[data-bs-theme="dark"] .offcanvas-admin a.sidebar-item:hover {
+    background-color: rgba(194, 65, 12, 0.2) !important;
+    color: #fb923c !important;
+}
+
+[data-bs-theme="dark"] .offcanvas-admin .admin-badge {
+    background-color: rgba(194, 65, 12, 0.2);
+    color: #fb923c;
+    border-color: rgba(194, 65, 12, 0.3);
+}
+
+/* ==========================================
+   OFFCANVAS SIDEBAR DESIGN (LIKE VIDEO DEMO)
+   ========================================== */
+
+/* ==========================================
+   OFFCANVAS SIDEBAR DESIGN (LIKE VIDEO DEMO)
+   ========================================== */
+
+/* Styling Wadah Offcanvas */
+.offcanvas-dark {
+    background-color: #1e232a !important;
+    color: #e2e8f0 !important;
+    border-right: 1px solid #2d3748 !important;
+    width: 280px !important;
+}
+
+/* Header Sidebar & Tombol Close */
+.offcanvas-dark .offcanvas-header {
+    border-bottom: 1px solid #2d3748 !important;
+}
+
+.offcanvas-dark .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%) !important;
+}
+
+/* Kategori/Sub-header Menu */
+.sidebar-category {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #a0aec0 !important;
+    margin-top: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-left: 0.5rem !important;
+}
+
+/* Desain Item Link Menu (Memaksa Hapus Underline & Warna Biru) */
+.offcanvas-dark .offcanvas-body nav a.sidebar-link,
+.offcanvas-dark .offcanvas-body nav a.sidebar-link:link,
+.offcanvas-dark .offcanvas-body nav a.sidebar-link:visited {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    padding: 0.65rem 0.85rem !important;
+    color: #cbd5e0 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Status Hover */
+.offcanvas-dark .offcanvas-body nav a.sidebar-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    text-decoration: none !important;
+    transform: translateX(4px);
+}
+
+/* Status Active (Menu Terpilih - Warna Oranye Brand EZPark) */
+.offcanvas-dark .offcanvas-body nav a.sidebar-link.active {
+    color: #ffffff !important;
+    background-color: var(--brand, #c2410c) !important;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.35) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+.offcanvas-dark .sidebar-link svg {
+    flex-shrink: 0 !important;
+    stroke: currentColor !important;
 }

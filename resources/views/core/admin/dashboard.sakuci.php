@@ -13,8 +13,6 @@
                 <p class="text-secondary mb-0 small">Kelola data master area parkir dan pengguna sistem dari satu tempat.</p>
             </div>
             <div>
-                <a href="{{ route('area-parkir.create') }}" class="btn btn-brand rounded-pill px-4 shadow-sm">
-                    + Tambah Area Parkir
                 </a>
             </div>
         </div>
