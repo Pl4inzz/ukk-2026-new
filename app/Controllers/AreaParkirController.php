@@ -36,4 +36,36 @@ class AreaParkirController extends Controller
 
         return redirect()->route('area-parkir.index')->with('success', 'daftar area parkir berhasil ditambahkan');
     }
+
+    public function edit(Request $request, $id_area)
+    {
+        $data = AreaParkir::findOrFail($id_area);
+        return view('area-parkir.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id_area)
+    {
+        $request->validate([
+            'nama_area'=> 'required',
+            'kapasitas'=> 'required|numeric',
+            'terisi'=> 'required|numeric',
+        ]);
+
+        $data = AreaParkir::findOrFail($id_area);
+        $data->update([
+            'nama_area'=> $request->input('nama_area'),
+            'kapasitas'=> $request->input('kapasitas'),
+            'terisi'=> $request->input('terisi'),
+        ]);
+
+        return redirect()->route('area-parkir.index')->with('success', 'daftar area parkir berhasil diperbarui');
+    }
+
+    public function destroy(Request $request, $id_area)
+    {
+        $data = AreaParkir::findOrFail($id_area);
+        $data->delete();
+
+        return redirect()->route('area-parkir.index')->with('success', 'daftar area parkir berhasil dihapus');
+    }
 }

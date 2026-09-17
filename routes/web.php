@@ -69,6 +69,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/area-parkir', [AreaParkirController::class, 'index'])->name('area-parkir.index');
     Route::get('/area-parkir/create', [AreaParkirController::class, 'create'])->name('area-parkir.create');
     Route::post('/area-parkir', [AreaParkirController::class, 'store'])->name('area-parkir.store');
+    Route::delete('/area-parkir/{id}', [AreaParkirController::class, 'destroy'])->name('area-parkir.destroy');
+    Route::get('/area-parkir/{id_area}/edit', [AreaParkirController::class, 'edit'])->name('area-parkir.edit');
+    Route::put('/area-parkir/{id_area}', [AreaParkirController::class, 'update'])->name('area-parkir.update');
 });
 
 /*
