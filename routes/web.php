@@ -8,6 +8,7 @@ use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
 use App\Controllers\TarifController;
 use App\Controllers\AreaParkirController;
+use App\Controllers\MemberController;
 use Sakuci\Route;
 
 /*
@@ -72,6 +73,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::delete('/area-parkir/{id}', [AreaParkirController::class, 'destroy'])->name('area-parkir.destroy');
     Route::get('/area-parkir/{id_area}/edit', [AreaParkirController::class, 'edit'])->name('area-parkir.edit');
     Route::put('/area-parkir/{id_area}', [AreaParkirController::class, 'update'])->name('area-parkir.update');
+
+    //member routes
+    Route::get('/member', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
+    Route::post('/member', [MemberController::class, 'store'])->name('member.store');
+    Route::delete('/member/{id}', [MemberController::class, 'destroy'])->name('member.destroy');
+    Route::get('/member/{id}/edit', [MemberController::class, 'edit'])->name('member.edit');
+    Route::put('/member/{id}', [MemberController::class, 'update'])->name('member.update');
 });
 
 /*

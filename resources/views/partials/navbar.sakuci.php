@@ -140,6 +140,12 @@
                     </svg>
                     <span>Daftar Area Parkir</span>
                 </a>
+
+                        <a class="sidebar-link {{ is_route('member.index') ? 'active' : '' }}" href="{{ route('member.index') }}">
+                    
+                    <span>Daftar Member</span>
+                </a>
+
             </nav>
         </div>
     </div>
