@@ -48,7 +48,10 @@ class AuthController extends Controller
 
         Session::put('user_id', $user->id);
 
-        return redirect('/dashboard')->with('success', 'Pendaftaran berhasil. Selamat datang, ' . $user->username . '.');
+        // Redirect sesuai role setelah register
+        $targetPath = '/' . strtolower($user->role);
+
+        return redirect($targetPath)->with('success', 'Pendaftaran berhasil. Selamat datang, ' . $user->username . '.');
     }
 
     public function login(Request $request)
@@ -68,8 +71,10 @@ class AuthController extends Controller
 
         Session::put('user_id', $user->id);
 
-        return redirect($user->role === 'admin' ? '/admin' : '/dashboard')
-            ->with('success', 'Selamat datang, ' . $user->username . '.');
+        // Redirect dinamis sesuai role (admin -> /admin, petugas -> /petugas, dst.)
+        $targetPath = '/' . strtolower($user->role);
+
+        return redirect($targetPath)->with('success', 'Selamat datang, ' . $user->username . '.');
     }
 
     public function logout()
@@ -79,4 +84,3 @@ class AuthController extends Controller
         return redirect('/login')->with('success', 'Berhasil logout.');
     }
 }
-

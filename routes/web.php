@@ -9,6 +9,7 @@ use App\Controllers\Core\UserController;
 use App\Controllers\TarifController;
 use App\Controllers\AreaParkirController;
 use App\Controllers\MemberController;
+use App\Controllers\TransaksiParkirController; // <-- Pastikan controller transaksi di-import
 use Sakuci\Route;
 
 /*
@@ -89,7 +90,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 |--------------------------------------------------------------------------
 | Blok di bawah ini dikelola otomatis oleh RoleController saat admin
 | menambah, mengganti nama, atau menghapus role lewat /admin/roles.
-| Jangan diedit manual -- perubahan bisa tertimpa.
 */
 // @generated-roles:start
 
@@ -98,28 +98,26 @@ Route::group(['prefix' => 'user', 'middleware' => 'user'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('user.dashboard');
 });
 // @role:user:end
+
 // @role:petugas:start
 Route::group(['prefix' => 'petugas', 'middleware' => 'petugas'], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('petugas.dashboard');
+    // 1. Arahkan dashboard ke method 'petugas' di DashboardController
+    Route::get('/', [DashboardController::class, 'petugas'])->name('petugas.dashboard');
+
+    // 2. Tambahkan Route Operasional Parkir
+    Route::get('/parkir/masuk', [TransaksiParkirController::class, 'masuk'])->name('parkir.masuk');
+    Route::post('/parkir/masuk', [TransaksiParkirController::class, 'storeMasuk'])->name('parkir.masuk.store');
+    
+    Route::get('/parkir/keluar', [TransaksiParkirController::class, 'keluar'])->name('parkir.keluar');
+    Route::post('/parkir/keluar', [TransaksiParkirController::class, 'storeKeluar'])->name('parkir.keluar.store');
+
+    Route::get('/parkir/riwayat', [TransaksiParkirController::class, 'riwayat'])->name('parkir.riwayat');
 });
 // @role:petugas:end
+
+// @role:owner:start
+Route::group(['prefix' => 'owner', 'middleware' => 'owner'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('owner.dashboard');
+});
+// @role:owner:end
 // @generated-roles:end
-
-/*
-|--------------------------------------------------------------------------
-| Contoh (hapus/ubah sesuai kebutuhan)
-|--------------------------------------------------------------------------
-|
-| use App\Controllers\BukuController;
-|
-| Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
-|
-| // Tujuh route CRUD sekaligus: index, create, store, show, edit, update, destroy
-| // Route::resource
-|
-| // Group dengan prefix dan middleware bersama
-| Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-|     Route::get('/dashboard', [DashboardController::class, 'index']);
-| });
-*/
-
