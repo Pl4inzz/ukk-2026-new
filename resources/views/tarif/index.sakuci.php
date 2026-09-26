@@ -61,16 +61,16 @@
                                         <td class="fw-bold text-secondary">{{ $no++ }}</td>
                                         <td>{{ $d->jenis_kendaraan }}</td>
                                         <td>Rp {{ number_format($d->tarif_per_jam, 0, ',', '.') }}</td>
-                                        <td class="text-end">
-                                            <div class="d-inline-flex gap-2">
-                                                <a href="{{ route('tarif.edit', ['id' => $d->id_tarif]) }}" class="btn btn-sm btn-outline-brand">Edit</a>
-                                                <form method="POST" action="{{ route('tarif.destroy', ['id' => $d->id_tarif]) }}" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tarif ini?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-sm btn-outline-danger" type="submit">Hapus</button>
-                                                </form>
-                                            </div>
-                                        </td>
+                                            <td class="text-end">
+                                                <div class="d-inline-flex gap-2">
+                                                    <a href="{{ route('tarif.edit', ['id' => $d->id_tarif]) }}" class="btn btn-sm btn-outline-brand">Edit</a>
+                                                    <form method="POST" action="{{ route('tarif.destroy', ['id' => $d->id_tarif]) }}" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tarif ini?')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-outline-danger" type="submit">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -9,6 +9,7 @@ use App\Controllers\Core\UserController;
 use App\Controllers\TarifController;
 use App\Controllers\AreaParkirController;
 use App\Controllers\MemberController;
+use App\Controllers\WelcomeController;
 use App\Controllers\TransaksiParkirController; // <-- Pastikan controller transaksi di-import
 use Sakuci\Route;
 
@@ -24,9 +25,7 @@ use Sakuci\Route;
 |   function () { ... }                -> closure
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::get('/docs', [DocsController::class, 'index'])->name('docs');
 
@@ -93,11 +92,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 */
 // @generated-roles:start
 
-// @role:user:start
-Route::group(['prefix' => 'user', 'middleware' => 'user'], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('user.dashboard');
-});
-// @role:user:end
 
 // @role:petugas:start
 Route::group(['prefix' => 'petugas', 'middleware' => 'petugas'], function () {
